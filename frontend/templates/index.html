@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Posts Website</title>
+    <!-- <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='index.css') }}"
+    /> -->
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    /> -->
+  </head>
+<body>
+    <header class="main-header">
+        <h1>Project</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                {% if current_user.is_authenticated==False %}
+                <li><a href="/register">Register</a></li>
+                <li><a href="/create">Create floppa</a></li>
+                {% else %}
+                <li><a href="/create">Create floppa</a></li>
+                {% endif %}
+                <li class="dropdown">
+              </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="posts">
+            {% if floppas %}
+            {% for floppa in floppas %}
+            <div class="post">
+                <h3>{{ floppa.owner }}</h3>
+                <h4>{{ floppa.age }}</h4>
+                <p>{{ floppa.name }}</p>
+                <p>{{ floppa.desc }}</p>
+            </div>
+            {% endfor %}
+            {% else %}
+            <h2>No floppas available</h2>
+            {% endif %}
+        </section>
+    </main>
+    <script>
+      function submitDropdownForm(value) {
+        var form = document.getElementById('dropdownForm');
+        document.getElementById('dropdownValue').value = value;
+        form.action = '/theme/' + encodeURIComponent(value);
+        form.submit(); 
+    }
+    
+  </script>
+  
+</body>
+</html>
