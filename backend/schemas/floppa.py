@@ -2,7 +2,7 @@ from typing import Optional
 from pydantic import BaseModel, ConfigDict
 
 
-class FloppaData(BaseModel):
+class PurchaseData(BaseModel):
     model_config = ConfigDict(from_attributes=True) #помолись на дядюшку
     id: Optional[int] = None
     owner: str
@@ -12,5 +12,5 @@ class FloppaData(BaseModel):
 
 
 
-class SeeFlopps(BaseModel):
+class SeePurchases(BaseModel):
     email: str

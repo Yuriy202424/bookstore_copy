@@ -1,1 +1,1 @@
-from .floppa import FloppaData, SeeFlopps
+from .floppa import PurchaseData, SeePurchases

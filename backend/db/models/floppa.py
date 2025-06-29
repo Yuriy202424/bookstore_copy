@@ -2,7 +2,7 @@ from sqlalchemy.orm import Mapped
 from .. import Base
 
 
-class Floppa(Base):
+class Purchase(Base):
     __tablename__ = "floppas"
 
     owner: Mapped[str]

@@ -1,7 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import (
     EmailField,
-    StringField,
     PasswordField,
     SubmitField,
 )
